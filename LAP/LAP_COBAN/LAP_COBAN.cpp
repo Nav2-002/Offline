@@ -4,7 +4,7 @@
 using namespace std;
 
 //Bai 1
-void Bai1(int n){
+/*void Bai1(int n){
 	int a[100];
 	bool check = true;
 	do {
@@ -32,13 +32,67 @@ void Bai1(int n){
 			cout << "Nhap lai:\n";
 		}
 	} while (check == false);
-}
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 int main() {
-	int b;
-	cin>>b;
-	Bai1(b);
-	
+	int n, a[100000];
+	int min=0;
+	int max=0;
+	cin>>n;
+	for (int i=0;i<n;i++) {
+		cin>>a[i];
+	}
+		
+	for (int i=0;i<n;i++) {
+		for (int v=0;v<n;v++) {
+			if (a[i]<a[v]) {
+				min = a[v] - a[i];
+				cout<<min;
+			}
+		}
+	}
 	return 0;
 }
