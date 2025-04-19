@@ -1,2 +1,5 @@
 ﻿  HAM_COBAN.cpp
+D:\GiaKhiem\Offline\HAM\HAM_COBAN\HAM_COBAN.cpp(33,1): warning C4715: 'checkFibonacci': not all control paths return a value
+D:\GiaKhiem\Offline\HAM\HAM_COBAN\HAM_COBAN.cpp(41,1): warning C4715: 'checkSochinhphuong': not all control paths return a value
+D:\GiaKhiem\Offline\HAM\HAM_COBAN\HAM_COBAN.cpp(73,1): warning C4715: 'sohoanhao': not all control paths return a value
   HAM_COBAN.vcxproj -> D:\GiaKhiem\Offline\HAM\HAM_COBAN\x64\Debug\HAM_COBAN.exe
