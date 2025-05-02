@@ -137,6 +137,21 @@ void VietTat(char str[100]) {
         }
     }
 }
+
+void GanGiaTri(char a[100], char* b[100]) {
+    int dodai = DoDai(a);
+    for (int i = 0; i < dodai; i++) {
+        *b[i] = a[i];
+    }
+}
+
+void VoDichBongDa1910(int n) {
+    int diiemdoi1 = 0;
+    int diemdoi2 = 0;
+    char doi1[100];
+    char doi2[100];
+    char*str[100];
+}
 int main()
 {   
     char str[1000];
