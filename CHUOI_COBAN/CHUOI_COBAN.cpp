@@ -1,6 +1,8 @@
 #include <cmath>
 #include <climits>
 #include <iostream>
+#include <cstring>
+#include <cctype>
 using namespace std;
 
 int DoDai(char str[1000]) {
@@ -138,25 +140,104 @@ void VietTat(char str[100]) {
     }
 }
 
-void GanGiaTri(char a[100], char* b[100]) {
-    int dodai = DoDai(a);
-    for (int i = 0; i < dodai; i++) {
-        *b[i] = a[i];
+void VoDichBongDa1910(int n) {
+    int diemdoi1 = 0;
+    int diemdoi2 = 0;
+    char doi1[100]="";
+    char doi2[100]="";
+    char str[100];
+    for (int i = 0; i < n; i++) {
+        cin>>str;
+        //Nhap ten
+        if (doi1[0] == '\0') {
+            strcpy_s(doi1,str);
+        }
+        else if (doi1[0]!='\0' && doi2[0] == '\0') {
+            strcpy_s(doi2, str);
+        }
+        //tinh diem
+        if (strcmp(str, doi1) == 0) {
+            diemdoi1++;
+        }
+        else {
+            diemdoi2++;
+        }
+    }
+    if (diemdoi1 > diemdoi2) {
+        cout << doi1;
+    }
+    else {
+        cout << doi2;
     }
 }
 
-void VoDichBongDa1910(int n) {
-    int diiemdoi1 = 0;
-    int diemdoi2 = 0;
-    char doi1[100];
-    char doi2[100];
-    char*str[100];
+void PetyaLapTrinh(char str[100]) {
+    size_t len = strlen(str);
+    for (int i = 0; i < len; i++) {
+        char stri = tolower(str[i]);
+        if (stri== 'a' || stri == 'e' || stri == 'y' || stri == 'o' || stri == 'u' || stri == 'i') {
+            continue;
+        }
+        else {
+            cout << "." << stri;
+        }
+    }
 }
-int main()
-{   
-    char str[1000];
+
+int AndrewiddAndroid(int n, char str[20000]) {
+    int mot = 0;
+    int khong = 0;
+    for (int i = 0; i < n; i++) {
+        if (str[i] == '1') {
+            mot++;
+        }
+        else {
+            khong++;
+        }
+    }
+    if (mot > khong) {
+        mot -= khong;
+        return mot;
+    }
+    else {
+        khong -= mot;
+        return khong;
+    }
+}
+
+int Bitland(int n) {
+    int x = 0;
+    char sum1[10] = "++";
+    char str[150];
+    for (int i = 0; i < n; i++) {
+        cin >> str;
+        char* find = strstr(str, sum1);
+        if (find != nullptr) {
+            x++;
+        }
+        else {
+            x--;
+        }
+    }
+    return x;
+}
+
+int PetyaSoSanhQua(char str1[150], char str2[150]) {
+    int a = 0;
+    size_t len = strlen(str1);
+    for (int i = 0; i < len; i++) {
+        if (strcmp(str1, str2) < 0) {
+            a = -1;
+        }
+        else if ()
+    }
+    return a;
+}
+
+int main(){   
+    int n; cin >> n;
+    char str1[150], str2[150]; cin >> str1 >> str2;
     //cin.ignore(1) bo qua 1 buoc
-    cin.getline(str, 1000);
-    VietTat(str);
+    int check = PetyaSoSanhQua(str1,str2); cout << check;
     return 0;
 }
