@@ -1,2 +1,2 @@
 ﻿  CHUOI_COBAN.cpp
-  CHUOI_COBAN.vcxproj -> D:\GiaKhiem\Offline\CHUOI_COBAN\x64\Debug\CHUOI_COBAN.exe
+D:\GiaKhiem\Offline\CHUOI_COBAN\CHUOI_COBAN.cpp(1,1): error C1041: cannot open program database 'D:\GiaKhiem\Offline\CHUOI_COBAN\CHUOI_COBAN\x64\Debug\vc143.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
