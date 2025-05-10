@@ -312,23 +312,21 @@ void PetyaDaBong(char a[10000]) {
 	
 	for (int i=0;i<strlen(a);i++) {
 		//xet 0
-		if (a[i] == '0') {
+		if (a[i] == '0' && count0<7) {
 			count0++;
-	 		if (count0<7) {
-	 			if (a[i+1] == '1') {
-	 				count0=0;
-	 			}
-	 		}
-		}
+			if (a[i+1] == '1') {
+			   count0=0;
+			}
+ 		}
+	}
 		//xet 1
-		if (a[i] == '1') {
+		if (a[i] == '1' && count1<7) {
 			count1++;
-	 		if (count1<7) {
-	 			if (a[i+1] == '0') {
-	 				count1=0;
-	 			}
-	 		}
-		}
+			if (a[i+1] == '0') {
+			   count1=0;
+			}
+ 		}
+	}
 		if (count0==7||count1==7) {
 		check = true;
 		}
