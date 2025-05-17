@@ -22,15 +22,23 @@ void Xuatnvien(nvien a[10],int n) {
     for (int i = 0; i < n; i++) {
         cout << a[i]->hoten<<"\t";
     }
+    cout<<endl;
 }
 //01/01/1985
 void NvienLonHon40(nvien a[10], int n) {
     cout << "Nhan vien tren 40 tuoi:";
+    char A[5];
+    char B[5]="1985";
     for (int i = 0; i < n; i++) {
-        if (a[i]->ngaysinh[6] <= '1' && a[i]->ngaysinh[7] <= '9' && a[i]->ngaysinh[8] <= '8' && a[i]->ngaysinh[9] < '5') {
-            cout << a[i]->hoten<<"\n";
+        A[0]=a[i]->ngaysinh[6];
+        A[1]=a[i]->ngaysinh[7];
+        A[2]=a[i]->ngaysinh[8];
+        A[3]=a[i]->ngaysinh[9]:
+        if (strcmp(A,B) < 0{
+            cout << a[i]->hoten<<" ";
         }
     }
+    cout<<endl;
 }
 
 int SoNvienLuongNhieuHon1tr(nvien a[10], int n) {
@@ -83,10 +91,8 @@ int main() {
     Nhapnvien(a, n);
     Xuatnvien(a, n);
     NvienLonHon40(a, n);
-    cout<<"Danh sach nhan vien luong hon 1tr: ";
     int sum = SoNvienLuongNhieuHon1tr(a, n);
-    cout << sum << "\n";
+    cout <<"Danh sach nhan vien luong hon 1tr: "<< sum << endl;
     NvienTangDanTuoi(a, n);
     return 0;
 }
-
