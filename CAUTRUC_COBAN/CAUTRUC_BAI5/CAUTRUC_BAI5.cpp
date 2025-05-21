@@ -53,14 +53,37 @@ int TongSoLuongGiuong(phong a[10], int n) {
 	return sum;
 }
 
+//a>b
+void SapXepGiaThueTangDan(phong a[10],int n) {
+	char tam[31];
+	double A,B,tam1;
+	for (int i=0;i<n;i++) {
+		for (int j=0;j<n-1;j++) {
+			A = a[j]->gia;
+			B = a[j+1]->gia;
+			if (A>B) {
+				strcpy(tam,a[j]->ten);
+				tam1 = a[j]->gia;
+				
+				strcpy(a[j]->ten,a[j+1]->ten);
+				a[j]->gia = a[j+1]->gia;
+				
+				strcpy(a[j+1]->ten,tam);
+				a[j+1]->gia = tam1;
+			}
+		}
+	}
+	cout<<"Cac phong theo gia tang dan: ";
+	for (int i = 0;i<n;i++) {
+		cout<<a[i]->ten<<" ";
+	}
+}
+
 int main() {
     int n;
     cin >> n;
     phong a[10];
     Nhap(a, n);
-    Xuat(a, n) ;
-    PhongTrong(a,n);
-    int sum = TongSoLuongGiuong(a,n);
-    cout<<"Tong so giuong: "<<sum;
+    SapXepGiaThueTangDan(a,n);
     return 0;
 }
