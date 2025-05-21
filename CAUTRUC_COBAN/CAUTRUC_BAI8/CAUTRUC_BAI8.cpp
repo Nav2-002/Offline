@@ -74,7 +74,7 @@ void SapXepTangDanXuatChieu(ve a[10], int n) {
 				}
 			}	
 		}
-	cout<<"Hop sua tang dan HSD la: ";
+	cout<<"Ve tang dan theo xuat chieu la: ";
 	for (int i=0;i<n;i++) {
 		cout<<a[i]->ten<<" ";
 	}
