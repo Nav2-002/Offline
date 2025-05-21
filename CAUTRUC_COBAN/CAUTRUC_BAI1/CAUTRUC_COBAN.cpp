@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <cmath>
 using namespace std;
 typedef struct NhanVien {
     char hoten[31];
@@ -33,8 +34,8 @@ void NvienLonHon40(nvien a[10], int n) {
         A[0]=a[i]->ngaysinh[6];
         A[1]=a[i]->ngaysinh[7];
         A[2]=a[i]->ngaysinh[8];
-        A[3]=a[i]->ngaysinh[9]:
-        if (strcmp(A,B) < 0{
+        A[3]=a[i]->ngaysinh[9];
+        if (strcmp(A,B) < 0){
             cout << a[i]->hoten<<" ";
         }
     }
@@ -51,48 +52,40 @@ int SoNvienLuongNhieuHon1tr(nvien a[10], int n) {
     return sum;
 }
 //a>b false = a>b
-bool SoSanhNamSinhNvien(nvien a[10], int n) {
-    bool check = true;
-    char A[4], B[4];
-    for (int i=0;i<n-1;i++) {
-        int k=0;
+void SoSanhNamSinhNvien(nvien a[10], int n) {
+    char A[4], B[4], tam[31], tam1[11];
+    //Gan
+    for (int v=0;v<n;v++) {
+    	for (int i=0;i<n-1;i++) {
+        int k = 0;
         for (int j=6;j<=9;j++) {
-            A[k]= a[i]->ngaysinh[j];
+            A[k] = a[i]->ngaysinh[j];
             B[k]= a[i+1]->ngaysinh[j];
-            if (A[k] < B[k]) {
-                return false;
-            }
-            k++;
+            k++;           
         }
-    }
- }
-
-void NvienTangDanTuoi(nvien a[10], int n) {
-    bool check = true;
-    check = SoSanhNamSinhNvien(a, n);
-    char tam[31];
-    for (int i=0;i<n-1;i++) {
-        if (check == false) {
-            strcpy(tam,a[i+1]->hoten);
-            strcpy(a[i+1]->hoten,a[i]->hoten);
-            strcpy(a[i]->hoten,tam);
-        }
-    }
-    cout<<"Danh sach nam sinh nhan vien giam dan: ";
-    for (int i=0;i<n;i++) {
-        cout<<a[i]->hoten;
-    }
+        
+        	if (strcmp(A,B)<0) {
+			strcpy(tam ,a[i]->hoten);
+			strcpy(tam1,a[i]->ngaysinh);
+			strcpy(a[i]->hoten,a[i+1]->hoten);
+			strcpy(a[i]->ngaysinh,a[i+1]->ngaysinh);
+			strcpy(a[i+1]->hoten,tam);
+			strcpy(a[i+1]->ngaysinh,tam1);
+		}
+	}
 }
+	for (int i=0;i<n;i++) {
+		cout<<a[i]->hoten;
+	}
+}
+
 
 int main() {
     int n;
     cin >> n;
     nvien a[10];
+    
     Nhapnvien(a, n);
-    Xuatnvien(a, n);
-    NvienLonHon40(a, n);
-    int sum = SoNvienLuongNhieuHon1tr(a, n);
-    cout <<"Danh sach nhan vien luong hon 1tr: "<< sum << endl;
-    NvienTangDanTuoi(a, n);
+    SoSanhNamSinhNvien(a, n);
     return 0;
 }

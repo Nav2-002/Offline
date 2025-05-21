@@ -90,6 +90,28 @@ bool checkdoixung(int a[100], int n) {
     return true;
 }
 
+void SapXepChieuGiamDan(int a[100], int n) {
+	int tam;
+	for (int i=0;i<n;i++) {
+		for (int j=1;j<n;j++) {
+			if (a[j]>a[j-1]) {
+			tam = a[j];
+			a[j] = a[j-1];
+			a[j-1] = tam;
+		}
+		}
+	}
+	for (int i=0;i<n;i++) {
+		cout << a[i];
+	}
+}
+
 int main() {
+	int n;cin>>n;
+	int a[100];
+	for (int i=0;i<n;i++) {
+		cin>>a[i];
+	}
+	SapXepChieuGiamDan(a,n);
     return 0;
 }
