@@ -27,20 +27,22 @@ int TongGiaTienCacVe(ve a[10],int n) {
 		sum+=a[i]->gia;
 	}
 	return sum;
+
 }
 
 void SapXepTangDanXuatChieu(ve a[10], int n) {
-	char A[11],B[11], tam[31],tam1[31];
-	char A1[11] = "00/00/0000";
+	char A[11],B[11], tam[31],tam1[11];
+	char A1[11] = "00/00/0000"; //nam
 	char B1[11] = "00/00/0000";
-	char A2[9],B2[9];
+	char A2[9] = "00:00:00";
+	char B2[9] = "00:00:00";//thoi gian
 	for (int i=0;i<n;i++) {
 		for (int j=0;j<n-1;j++) {
 			int k = 0;
 			for (int e=0;e<11;e++) {
 				A[k] = a[j]->ngay[e];
 				B[k] = a[j+1]->ngay[e];
-				if (e>=0 && e<=8) {
+				if (k<=7 && e<=7) {
 					A2[k] = a[j]->thoigian[e];
 					B2[k] = a[j+1]->thoigian[e];
 				}
@@ -48,37 +50,52 @@ void SapXepTangDanXuatChieu(ve a[10], int n) {
 					A1[k] = a[j]->ngay[e];
 					B1[k] = a[j+1]->ngay[e];
 				}
+				
 				k++;
 			}
-			if (strcmp(A1,B1)==0) {
-				if (strcmp(A,B)>0) {
+			if (strcmp(A1,B1)>0) { //so sanh nam
 				strcpy(tam,a[j]->ten);
-				strcpy(tam1,a[j]->hsd);
+				strcpy(tam1,a[j]->ngay);
 				
 				strcpy(a[j]->ten,a[j+1]->ten);
-				strcpy(a[j]->hsd,a[j+1]->hsd);
+				strcpy(a[j]->ngay,a[j+1]->ngay);
 				
 				strcpy(a[j+1]->ten,tam);
-				strcpy(a[j+1]->hsd,tam1);
-				}
+				strcpy(a[j+1]->ngay,tam1);
 			}
-			else if (strcmp(A1,B1)>0) {
-				strcpy(tam,a[j]->ten);
-				strcpy(tam1,a[j]->hsd);
+			else if(strcmp(A1,B1)==0){
+				if (strcmp(A,B)>0) { //so sanh ngay
+					strcpy(tam,a[j]->ten);
+					strcpy(tam1,a[j]->ngay);
 				
-				strcpy(a[j]->ten,a[j+1]->ten);
-				strcpy(a[j]->hsd,a[j+1]->hsd);
+					strcpy(a[j]->ten,a[j+1]->ten);
+					strcpy(a[j]->ngay,a[j+1]->ngay);
 				
-				strcpy(a[j+1]->ten,tam);
-				strcpy(a[j+1]->hsd,tam1);
-				}
-			}	
+					strcpy(a[j+1]->ten,tam);
+					strcpy(a[j+1]->ngay,tam1);
+					}
+				else if (strcmp(A2,B2)>0) { //so sanh thoi gian
+						strcpy(tam,a[j]->ten);
+						strcpy(tam1,a[j]->thoigian);
+				
+						strcpy(a[j]->ten,a[j+1]->ten);
+						strcpy(a[j]->thoigian,a[j+1]->thoigian);
+				
+						strcpy(a[j+1]->ten,tam);
+						strcpy(a[j+1]->thoigian,tam1);
+					}
+			}
 		}
-	cout<<"Ve tang dan theo xuat chieu la: ";
+}
+cout<<"Ve tang dan theo xuat chieu la: ";
 	for (int i=0;i<n;i++) {
 		cout<<a[i]->ten<<" ";
 	}
 }
 int main() {
+	int n;cin>>n;
+	ve a[10];
+	Nhap(a,n);
+	SapXepTangDanXuatChieu(a,n);
 	return 0;
 }
