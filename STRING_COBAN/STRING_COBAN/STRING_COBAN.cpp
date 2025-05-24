@@ -49,17 +49,15 @@ void VasyaHello(string a) {
         size_t check1 = b.find("hel");
         size_t check2 = a.find("l");
         if (check == string::npos) {
-            if (check1 != string::npos) {
-                if (check2 != string::npos) {
+            if (check1 != string::npos && check2 != string::npos) {
                     b += "l";
-                }
             }
             b += a[i];
 
             //lllll
         }
     }
-    if (chec != string::npos) {
+    if (chec == string::npos) {
         cout << "YES";
     }
     else {
