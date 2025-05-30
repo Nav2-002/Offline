@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <climits>
+#include <cstring>
 using namespace std;
 
 void Fibonacci(int n) {
@@ -106,12 +107,32 @@ void SapXepChieuGiamDan(int a[100], int n) {
 	}
 }
 
+void PhanTuXuatHienNhieuNhat(char a[100], int n) {
+	char tam;
+	char tam1;
+	int sum = 0;
+	int sum1 = 0;
+	for (int i=0;i<n;i++) {
+		int k = 0;
+		for (int j = 0;j<n;j++) {
+			if (tam == "" && tam != a[j]) {
+				tam = a[j];
+			}
+		 	else if (tam != a && tam1 != tam) {
+		 		tam = a[j];
+			}
+			else if (tam == a[j]) {
+				sum++;
+			}	
+			else if (tam1 == a[j]) {
+				sum1++;
+			}
+		}
+	}
+}
 int main() {
 	int n;cin>>n;
-	int a[100];
-	for (int i=0;i<n;i++) {
-		cin>>a[i];
-	}
-	SapXepChieuGiamDan(a,n);
+	char a[100] = "";
+	cout<<a;
     return 0;
 }
