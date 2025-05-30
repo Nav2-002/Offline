@@ -1,2 +1,0 @@
-hoc C++ rat thu vi
-toi yeu C++
