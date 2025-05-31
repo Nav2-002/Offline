@@ -229,31 +229,109 @@ void Noel(string a,string b,string c) {
 	}
 }
 
-void So1LienKe(string a) {
-    int n; cin>>n;
+void So1LienKe(string a,int n) {
     int sum = 0;
-    for (int i = 0;i<n;i++) {
-        cin>>a;
-        size_t Size = a.size();
-        for (int j = 0;j<Size;j++) {
-            size_t check1 = a.find_first_of("1");
-            size_t check1last = a.find_last_of("1");
-            tam = check1 + 1;
-            if (a[tam] == '0') {
-                a.erase(tam,1);
-                sum++;
-            }
-            
-        }
-    }
+    for (int j = 0;j<n;j++) {
+    	sum=0;
+    	cin>>a;
+    	size_t checkdau = a.find_first_of("1");
+    	size_t checkcuoi = a.find_last_of("1");
+    	for (int i = checkdau+1;i<checkcuoi;i++) {
+    		if (a[checkdau] == '1' && a[i]=='0' &&a[checkcuoi]=='1') {
+    			sum++;
+			}
+			else if (checkdau==string::npos||checkcuoi==string::npos) {
+				sum = 0; break;
+			}
+		}
+		cout<<sum;
+	}
+	
 }
 
+//14
+
+void TongSoChan(string a,int n) {
+	int sum=0;
+	for ( int i=0;i<n;i++) {
+		if (a[i]%2==0) {
+			sum++;
+		}
+	}
+	cout<<sum;
+}
+
+//16
+void CheckChuoiGiongNhau(string a,string b,string c) {
+	size_t Size = a.size();
+	int check = true;
+	for (int i=0;i<Size;i++) {
+		if (c[i]== b[i] || c[i] == a[i]) check = true;
+		else check = false; break;
+	}
+	if (check == true) cout<<"YES";
+	else cout<<"NO";
+}
+
+void CheckaBangb(string a,int n) {
+	int counta=0;
+	int countb=0;
+	for (int i=0;i<n;i++) {
+		if (a[i]=='a') counta++;
+		else countb++;
+	}
+	for (int i=0;i<n;i++) {
+		if (counta == countb) {
+			cout<<"0";
+			cout<<a[i];
+		}
+		
+		else if (counta>countb) {
+			cout<<n-counta;
+			if (a[i] == 'a') {
+				a[i] = 'b'; 
+				cout<<a[i];
+				countb++;
+				if (counta==countb) break;
+			}
+		} 
+		
+		else if (countb>counta) {
+			cout<<n-countb;
+			if (a[i]=='b') {
+				a[i] = 'a';
+				cout<<a[i];
+				counta++;
+				if (counta==countb) break;
+			}
+		}
+		
+		else if (counta == 0) {
+			cout<<n/2;
+			if (a[i]=='b') {
+				a[i] = 'a';
+				cout<<a[i];
+				counta++;
+				if (counta==countb) break;
+			}
+		}
+		else if (countb==0) {
+			cout<<n/2; 
+			if (a[i]=='a') {
+				a[i] = 'b';
+				cout<<a[i];
+				countb++;
+				if (counta==countb) break;
+			}
+		}
+	}
+}
 
 int main() 
 {
-    string a,b,c;
-    //int n; cin >> n;
-    cin>>a>>b>>c;
-    Noel(a,b,c);
+    string a;//,b,c;
+    int n; cin >> n;
+    cin>>a;//>>b>>c;
+    CheckaBangb(a,n);
     
 }
