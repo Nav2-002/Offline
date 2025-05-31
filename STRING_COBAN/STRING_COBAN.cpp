@@ -174,14 +174,86 @@ int AntonChuCai(string a) {
 	return sum;
 }
 
+void Pangram(string a,int n) {
+	if (n<26) {
+		cout<<"NO";
+	}
+	else {
+		for (int i=0;i<n;i++) {
+			a[i] = tolower(a[i]);
+		}
+	string b;
+		for (int i=0;i<n;i++) {
+			size_t check = b.find_first_of(a[i]);
+				if (check==string::npos) {
+					b += a[i];
+				}
+		}
+	size_t check1 = b.size();
+		if (check1==26) {
+			cout<<"YES";
+		}	
+		else {
+			cout<<"NO";
+		}
+	}
+}
+
+void Noel(string a,string b,string c) {
+	int suma = 0;
+	int sumb = 0;
+	int sumc = 0;
+	size_t Sizea = a.size();
+	size_t Sizeb = b.size();
+	size_t Sizec = c.size();
+	if (Sizec > Sizea + Sizeb) {
+		cout<<"NO";
+	}
+	else {
+		for (int i=0;i<Sizea;i++) {
+			suma += a[i];
+		}
+		for (int i=0;i<Sizeb;i++) {
+			sumb+=b[i];
+		} 
+		for (int i=0;i<Sizec;i++) {
+			sumc +=c[i];
+		}
+	}
+	
+	if (sumc == suma + sumb) {
+		cout<<"YES";
+	}
+	else {
+		cout<<"NO";
+	}
+}
+
+void So1LienKe(string a) {
+    int n; cin>>n;
+    int sum = 0;
+    for (int i = 0;i<n;i++) {
+        cin>>a;
+        size_t Size = a.size();
+        for (int j = 0;j<Size;j++) {
+            size_t check1 = a.find_first_of("1");
+            size_t check1last = a.find_last_of("1");
+            tam = check1 + 1;
+            if (a[tam] == '0') {
+                a.erase(tam,1);
+                sum++;
+            }
+            
+        }
+    }
+}
 
 
 int main() 
 {
-    string a;//,b;
+    string a,b,c;
     //int n; cin >> n;
-    getline(cin,a);//>>b;
-    int sum = AntonChuCai(a);
-    cout<<sum;
+    cin>>a>>b>>c;
+    Noel(a,b,c);
     
 }
