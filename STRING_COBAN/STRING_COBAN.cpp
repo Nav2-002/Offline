@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <climits>
 using namespace std;
 
 #include <iostream>
@@ -276,62 +277,138 @@ void CheckChuoiGiongNhau(string a,string b,string c) {
 void CheckaBangb(string a,int n) {
 	int counta=0;
 	int countb=0;
+	int sum=0;
 	for (int i=0;i<n;i++) {
 		if (a[i]=='a') counta++;
 		else countb++;
 	}
+	
 	for (int i=0;i<n;i++) {
-		if (counta == countb) {
-			cout<<"0";
-			cout<<a[i];
-		}
-		
-		else if (counta>countb) {
-			cout<<n-counta;
+		if (counta>countb) {
 			if (a[i] == 'a') {
 				a[i] = 'b'; 
-				cout<<a[i];
 				countb++;
+				counta--;
+				sum++;
 				if (counta==countb) break;
 			}
 		} 
 		
 		else if (countb>counta) {
-			cout<<n-countb;
 			if (a[i]=='b') {
 				a[i] = 'a';
-				cout<<a[i];
 				counta++;
+				countb--;
+				sum++;
 				if (counta==countb) break;
 			}
 		}
 		
 		else if (counta == 0) {
-			cout<<n/2;
 			if (a[i]=='b') {
 				a[i] = 'a';
-				cout<<a[i];
 				counta++;
+				countb--;
+				sum++;
 				if (counta==countb) break;
 			}
 		}
+		
 		else if (countb==0) {
-			cout<<n/2; 
 			if (a[i]=='a') {
 				a[i] = 'b';
-				cout<<a[i];
 				countb++;
+				counta--;
+				sum++;
 				if (counta==countb) break;
 			}
 		}
 	}
+	
+	if (counta>countb) cout<<sum<<endl;
+	else if (countb>counta) cout<<sum<<endl;
+	else if (counta==countb) cout<<sum<<endl;
+	else if (counta==0 || countb==0) cout<<sum<<endl;
+	
+	for (int i=0;i<n;i++) cout<<a[i];	
+}
+	
+void AnhHungDoiTen(string a,string b) {
+	size_t Size = a.size();
+	size_t Sizeb = b.size();
+	bool checka,checkb,checktotal;
+	if (Size != Sizeb) checktotal=false;
+	else {
+		for (int i=0;i<Size;i++) {
+			if (a[i] == 'a'|| a[i] == 'e'|| a[i] == 'i' ||a[i] == 'o' ||a[i] =='u' ) {
+				checka = true;
+			}
+			if (b[i] == 'a'|| b[i] == 'e'|| b[i] == 'i' ||b[i] == 'o' ||b[i] =='u' ) {
+				checkb = true;
+			}
+			if (checka==checkb) checktotal=true;
+			else checktotal = false;
+		}
+	}
+	if (checktotal==false) cout<<"NO";
+	else cout<<"YES";
+}
+
+void AliceThicha(string a) {
+	size_t Size = a.size();
+	size_t check = a.size();
+	int counta;
+	for (int i=0;i<Size;i++) {
+		if (a[i] == 'a') {
+			counta++;
+			check--;
+		}
+	}
+	if (check>=counta) {
+		while (check>=counta) {
+		check--;
+	}
+	cout<<check+counta;
+	}
+	else cout<<counta;
+}
+
+//bai 20
+
+void ChuCaiLatinh(string a,int n,int k) {
+	string b;
+	int min=INT_MAX;
+	int sum=0;
+	int sum1=0;
+	for (int i=0;i<n;i++) {
+		size_t check = b.find_first_of(a[i]);
+		if (check == string::npos) {
+			b+=a[i];
+		}
+	}
+	size_t Size =b.size();
+	if (k > n/2) min = 0;
+	else {
+		for (int i=0;i<Size;i++) {
+			for (int j=0;j<n;j++) {
+				if (b[i] == a[j]) {
+					sum++;
+				}
+			}
+			if (min>sum) {
+				min = sum;
+			}
+			sum = 0;
+		}
+	}
+	cout<<min*k;
 }
 
 int main() 
 {
-    string a;//,b,c;
-    int n; cin >> n;
-    cin>>a;//>>b>>c;
-    CheckaBangb(a,n);
+    string a;//b;//c;
+    int n,k; cin >> n>>k;
+    cin>>a;//b;//>>c;
+    ChuCaiLatinh(a,n,k);
     
 }
