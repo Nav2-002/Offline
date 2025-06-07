@@ -2,6 +2,7 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -66,14 +67,48 @@ void DemLanXuatHien(vector <int>v) {
         m[item]++;
     }
     for (auto item : m) {
-        cout << item.first << "="<< item.second << " ";
+        cout << item.second << " ";
     }
 }
+
+void DemLanXuatHienVaGiaTri(vector <int>v) {
+    map <int, int> m;
+    for (auto item : v) {
+        m[item]++;
+    }
+    for (auto item : m) {
+        cout << item.first << "=" << item.second << " ";
+    }
+}
+
+void DemLanXuatHienCuaKyTu(string str) {
+    map <char, int> m;
+    for (auto item : str) {
+        m[item]++;
+    }
+    for (auto item : m) {
+        cout <<item.second << " ";
+    }
+}
+
+void DemLanXuatHienCuaKyTuVaKyTu(string str) {
+    map <char, int> m;
+    for (auto item : str) {
+        m[item]++;
+    }
+    for (auto item : m) {
+        cout << item.first << "=" << item.second << " ";
+    }
+}
+
+void TapGiaoCua
 
 int main()
 {
     vector<int> v = { 9,2,3,6,7,8,8,8 };
-    DemLanXuatHien(v);
+    vector<int> v1 = { 1,2,3,4,4,4,5,6 };
+    string str = "ABCDABC";
+    DemLanXuatHienCuaKyTu(str);
 
     return 0;
 }
