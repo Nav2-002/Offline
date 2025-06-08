@@ -39,31 +39,40 @@ void XacDinhNamNu(string a) {
     }
 }
 
-/*void VasyaHello(string a) {
-    size_t length = a.size();
-    string b;
-    
-    size_t chec = b.find("hello");
-    for (int i = 0; i < length; i++) {
-        size_t check = b.find(a[i]);
-        size_t check1 = b.find("hel");
-        size_t check2 = a.find("l");
-        if (check == string::npos) {
-            if (check1 != string::npos && check2 != string::npos) {
-                    b += "l";
-            }
-            b += a[i];
-
-            //lllll
-        }
-    }
-    if (chec == string::npos) {
-        cout << "YES";
-    }
-    else {
-        cout << "NO";
-    }
-}*/
+void VasyaHello(string a) {
+    size_t Size = a.size();
+    bool check = true;
+    for (int i=0;i<Size;i++) {
+    	size_t findH = a.find_first_of('h');
+    	if (findH == string::npos) {
+    		check = false;
+    		break;
+		}
+		else {
+			size_t findE = a.find_first_of('e');
+			if (findE == string::npos) {
+				check = false;
+				break;
+			}
+			else {
+				size_t findL = a.find_first_of('l');
+				if (findL==string::npos || a[findL+1] != 'l') {
+					check = false;
+					break;
+				}
+				else {
+					size_t findO = a.find_first_of('o');
+					if (findO == string::npos) {
+						check = false;
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (check == true) cout<<"YES";
+	else cout<<"NO";
+}
 
 void DichNgonNgu(string a, string b){
 	size_t Size = a.size();
@@ -250,7 +259,14 @@ void So1LienKe(string a,int n) {
 	
 }
 
-//14
+void CheckSoDienThoai(string a,int n) {
+	size_t find8 = a.find_first_of('8');
+	if (find8 == string::npos) cout<<"NO";
+	else {
+		if (n - 1 - find8 == 11) cout<<"YES";
+		else cout<<"NO";
+	}
+}
 
 void TongSoChan(string a,int n) {
 	int sum=0;
@@ -262,7 +278,6 @@ void TongSoChan(string a,int n) {
 	cout<<sum;
 }
 
-//16
 void CheckChuoiGiongNhau(string a,string b,string c) {
 	size_t Size = a.size();
 	int check = true;
@@ -404,11 +419,64 @@ void ChuCaiLatinh(string a,int n,int k) {
 	cout<<min*k;
 }
 
+void PolycarpBanPhim(string a){
+	size_t Size = a.size();
+	string b;
+	char tam;
+	if (Size == 1) cout<<a;
+	else {
+		for (int i=0;i<Size-1;i++) {
+			if (a[i] == a[i+1]) i++;
+			else {
+				b+=a[i];
+				if (Size - i == 2) {
+					b+=a[i+1];
+				}
+			}
+		}
+	}
+	for (int i=0;i<Size;i++) {
+		for (int j=0;j<Size-1;j++) {
+			if (b[j] > b[j+1]) {
+				tam = b[j];
+				b[j] = b[j+1];
+				b[j+1] = tam;
+			}
+		}
+	}
+	cout<<b;
+}
+
+void ChuoiLienKeDoiXung(string a) {
+	size_t Size = a.size();
+	bool check = true;
+	int HalfSize = Size/2;
+	int j;
+	if (Size>2) j = Size -1;
+	else j = 1;
+	
+	for (int i = 0;i<HalfSize;i++) {
+		if (a[i] == a[j]) check = true;
+		else {
+			if (a[i]+1 == a[j]-1 || a[i]-1 == a[j]+1) check = true;
+			else {
+				check = false;  
+				break;
+			}
+		}
+		
+		j--;
+	}
+	
+	if (check==true) cout<<"YES";
+	else cout<<"NO";
+}
+
 int main() 
 {
     string a;//b;//c;
-    int n,k; cin >> n>>k;
+    int n; cin >> n;
     cin>>a;//b;//>>c;
-    ChuCaiLatinh(a,n,k);
+    CheckSoDienThoai(a,n);
     
 }
