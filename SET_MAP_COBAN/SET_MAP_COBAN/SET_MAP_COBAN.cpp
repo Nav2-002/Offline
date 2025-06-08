@@ -1,8 +1,11 @@
 #include <iostream>
 #include <set>
 #include <map>
+#include <queue>
 #include <vector>
 #include <string>
+#include <climits>
+#include <cmath>
 
 using namespace std;
 
@@ -101,15 +104,87 @@ void DemLanXuatHienCuaKyTuVaKyTu(string str) {
     }
 }
 
-void TapGiaoCua
+void TapHopCuaHaiMang(vector<int> v1, vector<int> v2) {
+    map <int, int> m;
+    int min = INT_MAX;
+    for (auto item : v1) {
+        m[item]++;
+    }
+    for (auto item : v2) {
+        m[item]++;
+    }
+    for (auto item : m) {
+        if (min > item.second) {
+            min = item.second;
+        }
+    }
+    for (auto item : m) {
+        if (item.second == min) {
+            cout << item.first;
+        }
+    }
+}
+
+void TapGiaoCuaHaiMang(vector<int> v1, vector<int> v2) {
+    map<int, int> m;
+    for (auto item : v1) m[item]++;
+    for (auto item : v2) m[item]++;
+    for (auto item : m) cout << item.first;
+}
+
+int NoiDay(vector<int> v1) {
+    priority_queue<int,vector<int>, greater<int> > pq;
+    int sum = 0;
+    int tam;
+    for (auto item : v1) pq.push(item);
+    
+    tam = pq.top();
+    pq.pop();
+    sum += tam + pq.top();
+    pq.pop();
+
+    size_t Size = pq.size();
+    for (int i = 0; i < Size; i++) {
+            sum += pq.top();
+            pq.pop();
+    }
+    return sum;
+}
+
+int GiaTriNhoNhatCuaXau(string str,int k) {
+    priority_queue<int> pq;
+    int sum = 0;
+    int tam, gtri;
+    map<char, int> m;
+
+    for (auto item : str) m[item]++;
+    for (auto item : m) pq.push(item.second);
+    
+    while (k > 0) {
+        tam = pq.top();
+        tam--;
+        pq.pop();
+        pq.push(tam);
+        k--;
+    }
+    size_t Size = pq.size();
+    for (int i = 0; i < Size; i++) {
+        gtri = pq.top();
+        sum += pow(gtri, 2);
+        pq.pop();
+    }
+    return sum;
+}
 
 int main()
 {
-    vector<int> v = { 9,2,3,6,7,8,8,8 };
-    vector<int> v1 = { 1,2,3,4,4,4,5,6 };
-    string str = "ABCDABC";
-    DemLanXuatHienCuaKyTu(str);
-
+    vector<int> v1 = { 4,3,2,6 };
+    vector<int> v2 = { 3,5,6,7,8 };
+    
+    int k; cin >> k;
+    string str; cin >> str;
+    int sum =GiaTriNhoNhatCuaXau(str,k);
+    cout << sum;
     return 0;
 }
 
