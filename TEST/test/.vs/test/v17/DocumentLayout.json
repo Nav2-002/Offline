@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GiaKhiem\\Offline\\coban\\test\\",
+  "WorkspaceRootPath": "D:\\GiaKhiem\\Offline\\TEST\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C29A9429-27DE-4158-846B-2B91DFD00716}|test.vcxproj|D:\\GiaKhiem\\Offline\\coban\\test\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C29A9429-27DE-4158-846B-2B91DFD00716}|test.vcxproj|D:\\GiaKhiem\\Offline\\TEST\\test\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C29A9429-27DE-4158-846B-2B91DFD00716}|test.vcxproj|solutionrelative:test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "test.cpp",
-              "DocumentMoniker": "D:\\GiaKhiem\\Offline\\coban\\test\\test.cpp",
+              "DocumentMoniker": "D:\\GiaKhiem\\Offline\\TEST\\test\\test.cpp",
               "RelativeDocumentMoniker": "test.cpp",
-              "ToolTip": "D:\\GiaKhiem\\Offline\\coban\\test\\test.cpp",
+              "ToolTip": "D:\\GiaKhiem\\Offline\\TEST\\test\\test.cpp",
               "RelativeToolTip": "test.cpp",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAqwEoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-07T01:55:39.534Z",
               "EditorCaption": ""
