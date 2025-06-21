@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GiaKhiem\\Offline\\DS_LIEN_KET_DON\\DANHSACHLIENKETDON\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90FA85AF-30DD-47C2-9A9E-153A7EA9C874}|DANHSACHLIENKETDON.vcxproj|D:\\GiaKhiem\\Offline\\DS_LIEN_KET_DON\\DANHSACHLIENKETDON\\DANHSACHLIENKETDON.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{90FA85AF-30DD-47C2-9A9E-153A7EA9C874}|DANHSACHLIENKETDON.vcxproj|solutionrelative:DANHSACHLIENKETDON.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DANHSACHLIENKETDON.cpp",
+              "DocumentMoniker": "D:\\GiaKhiem\\Offline\\DS_LIEN_KET_DON\\DANHSACHLIENKETDON\\DANHSACHLIENKETDON.cpp",
+              "RelativeDocumentMoniker": "DANHSACHLIENKETDON.cpp",
+              "ToolTip": "D:\\GiaKhiem\\Offline\\DS_LIEN_KET_DON\\DANHSACHLIENKETDON\\DANHSACHLIENKETDON.cpp",
+              "RelativeToolTip": "DANHSACHLIENKETDON.cpp",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAkwFYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-21T02:12:05.936Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
