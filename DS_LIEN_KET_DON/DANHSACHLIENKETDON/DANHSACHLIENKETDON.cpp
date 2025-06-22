@@ -80,11 +80,29 @@ void eraseGiua(Node*& head, int it) {
         delete head;
         return;
     }
-    for (int i = 1; i < it && tam->next != nullptr; i++) {
+    int i;
+    for (i = 1; i < it-1 && tam->next != nullptr; i++) {
         tam = tam->next;
     }
+    if (--i < it && tam->next != nullptr) {
+        cout << "out of range";
+        return;
+    }
+    tam->next = tam->next->next;
+    tam = tam->next;
+    Node* delNode = tam->next;
+    delete delNode;
+}
 
-    if (tam->next == nullptr);
+bool checkRong(Node* head) {
+    return (head == nullptr);
+}
+
+int demNode(Node* head) {
+    Node* tam = head;
+    int i;
+    for (i = 1; tam->next != nullptr; i++) tam = tam->next;
+    return i;
 }
 
 void XuatDS(Node* head) {
@@ -98,12 +116,13 @@ int main()
 {
     SLinkedList S;
     insertFirst(S.head, 3);
-    /*insertFirst(S.head, 666);
-    insertLast(S.head, 22);
-    insertGiua(S.head, 1, 1);
+    insertFirst(S.head, 666);
+    insertLast(S.head, 22); 
+    /*insertGiua(S.head, 1, 1);
     insertGiua(S.head, 4, 2);*/
-    eraseLast(S.head);
     XuatDS(S.head);
+    int check = demNode(S.head);
+    cout << check;
 
     return 0;
 }
