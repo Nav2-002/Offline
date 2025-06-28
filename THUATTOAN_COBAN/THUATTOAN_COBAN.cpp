@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <cctype>
 using namespace std;
 
 void SaoChepVaBinhPhuongSoChan(vector<int> v1) {
@@ -82,17 +84,32 @@ void DemChuoiCoDoDaiLonHonTrungBinh(vector<string> v) {
 	cout << dem;
 }
 
+//FIND
+void TimSoTrongVector(vector<int> v, int i) {
+	vector<int>::iterator it = find(v.begin(), v.end(), i);
+	if (it != v.end()) cout << it - v.begin();
+	else cout << "Not found";
+}
+
+void TimSoChanDauTien(vector<int> v) {
+	vector<int>::iterator it = find_if(v.begin(), v.end(), [](int i) {
+		return i % 2 == 0;
+		});
+	if (it != v.end()) cout << "Value: " << *it << " Index: " << it - v.begin();
+	else cout << "No even number found";
+}
+
+void TimDayConCuoiCung(vector<int> v,vector<int> v1) {
+	vector<int>::iterator it = find_end(v.begin(), v.end(), v1.begin(), v1.end());
+	cout << it - v.begin();
+}
+
 //index = it - v.begin()
 int main()
 {
-	vector<int> v = { 1,2,3,4,5 };
-	vector<int> v1 = { 2,4};
-	bool check = all_of(v.begin(), v.end(), [](int i) {return i%2 != 0; });
-	cout << check<<" ";
-	bool check1 = any_of(v.begin(), v.end(), [](int i) {return i > 0; });
-	cout << check1<<" ";
-	bool check2 = none_of(v.begin(), v.end(), [](int i) {return i > 4; });
-	cout << check2;
+	vector<int> v = { 1,2,3,1,2, 4,5 };
+	vector<int> v1 = { 1,2};
+	TimDayConCuoiCung(v,v1);
 	return 0;
 }
 
