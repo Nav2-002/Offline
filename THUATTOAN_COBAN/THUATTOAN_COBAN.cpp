@@ -104,12 +104,47 @@ void TimDayConCuoiCung(vector<int> v,vector<int> v1) {
 	cout << it - v.begin();
 }
 
+void TimKyTutrongChuoi(vector<string> v1, char c) {
+	c = tolower(c);
+	auto it = find_if(v1.begin(), v1.end(), [c](string str) {
+		string v2(str.size(),'b');
+		transform(str.begin(), str.end(), v2.begin(), [](char c1) {
+				return tolower(c1);
+			});	
+		for (auto item : v2) return item == c;
+	});
+	if (it != v1.end()) cout << "String: " <<*it<<", Index: "<<it - v1.begin();
+	/*if (it != v1.end()) cout << "String: " *it << ", Index: " << it - v1.begin();*/
+}
+
+
+
+
+
+//THAY DOI PHAN TU
+void copyNdoublevalue(vector<int> v1) {
+	vector<int> v2(v1.size());
+	copy_if(v1.begin(), v1.end(), v2.begin(), checkSoNguyenTo);
+	auto it = remove(v2.begin(), v2.end(), 0);
+	v2.erase(it, v2.end());
+	for (auto item : v2) {
+		item *= 2; cout <<item<<" ";
+	}
+}
+
+void moveWdieukien(vector<string> v1) {
+	vector<string> v2(v1.size());
+	copy_if(v1.begin(), v1.end(), v2.begin(), [](string str) {
+		return str.size() > 5;
+		});
+}
+
 //index = it - v.begin()
 int main()
 {
-	vector<int> v = { 1,2,3,1,2, 4,5 };
-	vector<int> v1 = { 1,2};
-	TimDayConCuoiCung(v,v1);
+	vector<string> vstr = { "aa","bbb","CCccc","dd" };
+	vector<int> vi = { 2,3,4,5,6,7 };
+	moveWdieukien(vstr);
 	return 0;
 }
 
