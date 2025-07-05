@@ -1,0 +1,6 @@
+﻿  TINHTOAN_SO_LON.cpp
+D:\GiaKhiem\Offline\TINHTOAN_SO_LON\TINHTOAN_SO_LON\TINHTOAN_SO_LON.cpp(54,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GiaKhiem\Offline\TINHTOAN_SO_LON\TINHTOAN_SO_LON\TINHTOAN_SO_LON.cpp(71,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GiaKhiem\Offline\TINHTOAN_SO_LON\TINHTOAN_SO_LON\TINHTOAN_SO_LON.cpp(88,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GiaKhiem\Offline\TINHTOAN_SO_LON\TINHTOAN_SO_LON\TINHTOAN_SO_LON.cpp(118,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  TINHTOAN_SO_LON.vcxproj -> D:\GiaKhiem\Offline\TINHTOAN_SO_LON\TINHTOAN_SO_LON\x64\Debug\TINHTOAN_SO_LON.exe
