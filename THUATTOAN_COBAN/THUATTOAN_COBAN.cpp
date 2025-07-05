@@ -5,6 +5,19 @@
 #include <cctype>
 using namespace std;
 
+bool checkSoNguyenTo(int i) {
+	if (i < 2) {
+		return 0;
+	}
+	for (int n = 2; n <= sqrt(i); n++) {
+		if (i % n == 0) {
+			return 0;
+			break;
+		}
+	}
+	return 1;
+}
+
 void SaoChepVaBinhPhuongSoChan(vector<int> v1) {
     vector<int> v2;
     for (int i = 0; i < v1.size(); i++) {
@@ -29,24 +42,6 @@ void DemDoDaiChuoi(int i, vector<string> v) {
 		return (int)(str.size()) == i;
 		});
 	cout << dem;
-}
-
-bool checkSoNguyenTo(int i) {
-	bool check = true;
-	if (i < 2) {
-		check = false;
-		return check;
-	}
-	if (i == 2) {
-		return check;
-	}
-	for (int n = 2; n < sqrt(i) + 1; n++) {
-		if (i % n == 0) {
-			check = false;
-			break;
-		}
-	}
-	return check;
 }
 
 void DemSoNguyenTo(vector<int> v) {
@@ -137,14 +132,31 @@ void moveWdieukien(vector<string> v1) {
 	copy_if(v1.begin(), v1.end(), v2.begin(), [](string str) {
 		return str.size() > 5;
 		});
+	
+	auto new_end=remove_if(v1.begin(), v1.end(), [](string str) {
+		return str.size() > 5;
+		});
+	v1.erase(new_end, v1.end());
+	cout << "New: ";
+	for (auto item : v2) {
+		cout << item << " ";
+	}
+	cout << "Original: ";
+	for (auto item : v1) {
+		cout << item << " ";
+	}
+}
+
+void dienGiaTriXenKe(int n) {
+	vector<int> v1(n);
 }
 
 //index = it - v.begin()
 int main()
 {
-	vector<string> vstr = { "aa","bbb","CCccc","dd" };
+	vector<string> vstr = { "aa","bbbbb","CCccccc","dddddd" };
 	vector<int> vi = { 2,3,4,5,6,7 };
-	moveWdieukien(vstr);
+	bool check = checkSoNguyenTo(2);
+	cout << "Is prime: " << check << endl;
 	return 0;
 }
-
