@@ -1,8 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
 #include <string>
 #include <cctype>
+#include <cmath>
+#include <unordered_map>
 using namespace std;
 
 bool checkSoNguyenTo(int i) {
@@ -151,12 +154,140 @@ void dienGiaTriXenKe(int n) {
 	vector<int> v1(n);
 }
 
+bool myfunction(int i, int j) { return (i < j); }
+
+typedef struct Hocsinh {
+	string ten;
+	int tuoi;
+	double TB;
+};
+
+bool SortHs(Hocsinh i,Hocsinh j) {
+	if (i.TB != j.TB) return (i.TB > j.TB);
+	if (i.tuoi!=j.tuoi) return (i.tuoi < j.tuoi);
+	return (i.ten < j.ten);
+}
+
+bool TanSuat(pair<int,int> i,pair<int,int> j) {
+	if (i.second != j.second) return (i.second > j.second);
+	return (i.first < j.first);
+}
+
+void C1SortTanSuat(vector<int> v) {
+	//unodered_map<int,int> um;
+	vector<pair<int, int>> vp;
+	int tam = 0;
+	for (auto item : v) {
+		tam = (int)count(v.begin(), v.end(), item);
+		vp.push_back(make_pair(item,tam));
+	}
+	sort(vp.begin(), vp.end(), TanSuat);
+	for (auto item : vp) cout << item.first << " ";
+}
+
+//void C2SortTanSuat(vector<int> v) {
+//	unordered_map<int, int> um;
+//	for (auto item : v) {
+//		um[item]++;
+//	}
+//	sort(um.begin(), um.end(), TanSuat);
+//	for (auto item : um) cout << item.first << " ";
+//}
+
+bool ChuoiTang(string i, string j) {
+	if (i.size() != j.size()) return (i.size() < j.size());
+	else {
+		for (int k = 0; k < i.size(); k++) {
+			if (i[k] != j[k]) {
+				return (i[k] < j[k]);
+				break;
+			}
+		}
+	}
+}
+
+void SortChuoiTang(vector<string> vstr) {
+	sort(vstr.begin(), vstr.end(), Chuoi);
+	for (auto item : vstr) cout << item<<" ";
+}
+
+bool Min(int i, int j) {
+	return (i < j);
+}
+
+void SortMin(vector<int> v) {
+	sort(v.begin(), v.end(), Min);
+	cout << v[0];
+}
+
+typedef struct Diem {
+	string ten;
+	int x, y;
+};
+
+bool SortViTri(Diem i, Diem j) {
+	int tam1 = pow(i.x, 2) + pow(i.y, 2);
+	int tam2 = pow(j.x, 2) + pow(j.y, 2);
+	return (tam1 < tam2);
+}
+
+void SortViTriGanGocToaDo(vector<Diem> v) {
+	sort(v.begin(), v.end(), SortViTri);
+	for (auto item : v) cout << item.ten << " ";
+}
+
+bool PhanSo(pair<int, int> i, pair<int, int> j) {
+	return (i.first * j.second < i.second * j.first);
+}
+
+void SortPhanSo(vector<pair<int, int>> vp) {
+	sort(vp.begin(), vp.end(), PhanSo);
+	for (auto item : vp) cout << item.first << "/" << item.second<<" ";
+}
+
+bool ChuoiGiam(string i, string j) {
+	if (i.size() != j.size()) return (i.size() > j.size());
+	else {
+		for (int k = 0; k < i.size(); k++) {
+			if (i[k] != j[k]) {
+				return (i[k] < j[k]);
+				break;
+			}
+		}
+	}
+}
+
+void SortChuoiGiam(vector<string> vstr) {
+	sort(vstr.begin(), vstr.end(), ChuoiGiam);
+	for (auto item : vstr) cout << item << " ";
+}
+
+void BubbleSort(vector<int> &v) {
+	bool swapped = false;
+	do {
+		swapped = false;
+		for (int i = 1; i < v.size(); i++) {
+			if (v[i] < v[i - 1]) {
+				swap(v[i], v[i - 1]);
+				swapped = true;
+			}
+		}
+	} while (swapped==true);
+	
+}
+
 //index = it - v.begin()
 int main()
 {
-	vector<string> vstr = { "aa","bbbbb","CCccccc","dddddd" };
-	vector<int> vi = { 2,3,4,5,6,7 };
-	bool check = checkSoNguyenTo(2);
-	cout << "Is prime: " << check << endl;
+	vector<Hocsinh> hs = { {"a",10,8.0},{"b",20,10.0} ,{"c",30,9.0} ,{"d",25,10.0}, {"A",25,10.0} };
+	vector<int> v = {5,5,55,5,1,2,2,2,3,3,4,4,4,4 };
+	vector<Diem> vd = { {"a",1,1},{"b",2,3},{"c",1,2} };
+	vector<string> vstr = { "ac","ab","abc" };
+	vector<pair<int, int>> vp = { {1,2},{2,3},{1,3} };
+	vector<int> v2 = { 4,5,6,1,22,4 };
+	/*C2SortTanSuat(v);*/
+	BubbleSort(v2);
+	for (auto item : v2) cout << item;
+
 	return 0;
 }
